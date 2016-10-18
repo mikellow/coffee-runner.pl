@@ -127,7 +127,7 @@ html, body {
     padding: 0px 30px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
     .logo img {
         width: 400px;
     }
