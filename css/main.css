@@ -12,10 +12,17 @@ html, body {
 }
 
 .page-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
     background-image: url("../img/background-main.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right bottom;
+}
+.page-background-mobile {
+    display: none;
 }
 
 .bar {
@@ -76,6 +83,7 @@ html, body {
     display:flex;
     width: 100%;
     max-width: 1024px;
+    align-items: center;
 }
 
 .logo {
@@ -90,7 +98,8 @@ html, body {
 }
 .bar .content-list h2,
 .bar .content-list .mail a,
-.bar .content-list .phone {
+.bar .content-list .phone,
+.bar .content-list .facebook {
     font-size: 32px;
     margin: 0px;
     padding: 0px 10px;
@@ -98,14 +107,33 @@ html, body {
     color: black;
     text-decoration: none;
 }
-.bar .content-list .mail a:hover {
+.bar .content-list .mail a:hover,
+.bar .content-list .facebook a:hover {
     color: #772a00;
     text-decoration: underline;
 }
 
+.bar .content-list .facebook a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 32px;
+}
+.bar .content-list .facebook img {
+    height:32px;
+}
+
+.fb-iframe {
+    padding: 0px 30px;
+}
+
 @media all and (max-width: 768px) {
     .logo img {
-        width: 600px;
+        width: 400px;
+    }
+
+    .fb-iframe {
+        padding: 0 0 0 20px;
     }
 
     .bar .content-list h2,
@@ -118,16 +146,29 @@ html, body {
 
 @media all and (max-width: 414px) {
 
+    .page-content {
+
+    }
+
     .page-background {
-        background-image: url("../img/background-main.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 0% 0%;
+        display:none;
+        background-size: auto 100%;
+    }
+    .page-background-mobile {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .page-background-mobile img {
+        height: 100%;
+        transform: translate(0px);
+        /*transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);*/
 
         animation-name: move-page-background;
-        animation-duration: 30s;
-        animation-iteration-count: infinite;
-        /*animation-fill-mode: forwards;*/
+        animation-iteration-count: 1;
+        animation-duration: 45s;
         animation-timing-function: linear;
     }
 
@@ -139,7 +180,7 @@ html, body {
     }
 
     .bar-mobile {
-        bottom: 20%;
+        bottom: 5%;
         display: flex;
 
     }
@@ -155,22 +196,34 @@ html, body {
 
     .bar-mobile .content-list h2,
     .bar-mobile .content-list .mail a,
-    .bar-mobile .content-list .phone {
+    .bar-mobile .content-list .phone,
+    .bar-mobile .content-list .facebook
+     {
         font-size: 22px;
     }
     .bar-mobile .content-list li > * {
         text-align: center;
     }
+
+    .bar .content-list .facebook a{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 22px;
+    }
+    .bar .content-list .facebook img {
+        height:30px;
+    }
 }
 
 @keyframes move-page-background {
   0% {
-    background-position: 0% 0%;
+    transform: translate(0px);
   }
   50% {
-    background-position: 100% 0%;
+    transform: translate(-765px);
   }
   100% {
-    background-position: 0% 0%;
+    transform: translate(0px);
   }
 }
