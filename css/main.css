@@ -22,16 +22,17 @@ html, body {
 .page-background img {
         height: auto;
         width: 100%;
-        transform: scale(1.1) translate(100px, 50px);
+        transform: scale(1.1) translate(-40px, -25px);
         /* transform: translateX(10px); */
         position: absolute;
         left:0px;
         top:0px;
 
         animation-name: move-page-background;
-        animation-iteration-count: infinite;
-        animation-duration: 50s;
+        animation-iteration-count: 1;
+        animation-duration: 10s;
         animation-timing-function: linear;
+        animation-fill-mode: forwards;
 
     }
 
@@ -165,6 +166,24 @@ html, body {
     }
 }
 
+@media all and (max-width: 768px) {
+    .page-background img {
+        height: 100%;
+        width: auto;
+
+        transform: scale(1.1) translate(-40px, -25px);
+        position: absolute;
+        left:0px;
+        top:0px;
+
+        animation-name: move-page-background-mobile;
+        animation-iteration-count: infinite;
+        animation-duration: 45s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+}
+
 
 @media all and (max-width: 414px) {
 
@@ -190,6 +209,8 @@ html, body {
 
         animation-name: move-page-background-mobile;
         animation-iteration-count: infinite;
+        /*animation-iteration-count: 1;*/
+        animation-fill-mode: forwards;
         animation-duration: 45s;
         animation-timing-function: linear;
     }
@@ -240,21 +261,30 @@ html, body {
 }
 
 @keyframes move-page-background {
+    0% {
+        transform: scale(1.1) translate(-40px, -25px);
+
+    }
+    100% {
+        transform: scale(1.0) translate(0px, 0px);
+    }
+    /*
   0% {
-    transform: scale(1.1) translate(80px, 45px);
+    transform: scale(1.1) translate(40px, 25px);
   }
   25% {
     transform: scale(1.0) translate(0px, 0px);
   }
   50% {
-    transform: scale(1.1) translate(-80px, -45px);
+    transform: scale(1.1) translate(-40px, -25px);
   }
   75% {
     transform: scale(1.0) translate(0px, 0px);
   }
   100% {
-    transform: scale(1.1) translate(80px, 45px);
+    transform: scale(1.1) translate(40px, 25px);
   }
+  */
 }
 
 @keyframes move-page-background-mobile {
@@ -262,9 +292,10 @@ html, body {
     transform: translate(0px);
   }
   50% {
-    transform: translate(-765px);
+    transform: translate(-100%) translate(100vw);
   }
   100% {
     transform: translate(0px);
   }
+
 }
