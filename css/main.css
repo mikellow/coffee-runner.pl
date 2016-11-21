@@ -336,10 +336,14 @@ html, body {
     /*transform: translate(0px);*/
   }
   50% {
-    -ms-transform: translate(-100%) translate(100vw);
+    -ms-transform: translate(-100vw);
+    -webkit-transform: translate(-100vw);
+    -moz-transform: translate(-100vw);
+    -o-transform: translate(-100vw);
+    /*-ms-transform: translate(-100%) translate(100vw);
     -webkit-transform: translate(-100%) translate(100vw);
     -moz-transform: translate(-100%) translate(100vw);
-    -o-transform: translate(-100%) translate(100vw);
+    -o-transform: translate(-100%) translate(100vw);*/
     /*transform: translate(-100%) translate(100vw);*/
   }
   100% {

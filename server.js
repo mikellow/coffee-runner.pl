@@ -3,6 +3,9 @@ var app = express();
 app.use(express.static(__dirname));
 
 app.listen(4001, 'localhost');
+//app.use(require('connect-livereload')());
+app.listen(4001, '10.17.35.11');
+app.use(express.static('app'));
 console.log('server started at : localhost:4001');
 /*
 app.listen(8080, 'localhost');
